@@ -63,8 +63,8 @@ const CodePage = () => {
         title="Code Generation"
         description="Generate code using natural language."
         icon={Code}
-        iconColor="text-green-700"
-        bgColor="bg-green-700/10"
+        iconColor="text-green-300"
+        bgColor="bg-green-300/10"
       />
       <div className="px-4 lg:px-8">
         <div>

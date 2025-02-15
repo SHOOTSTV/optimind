@@ -50,8 +50,8 @@ const MusicPage = () => {
         title="Music Generation"
         description="Turn your prompt into a song."
         icon={Music}
-        iconColor="text-emerald-500"
-        bgColor="bg-emerald-500/10"
+        iconColor="text-emerald-300"
+        bgColor="bg-emerald-300/10"
       />
       <div className="px-4 lg:px-8">
         <div>

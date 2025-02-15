@@ -14,6 +14,7 @@ import { Montserrat } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { FreeCounter } from "./free-counter";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -25,47 +26,51 @@ const routes = [
     label: "Dashboard",
     icon: LayoutDashboard,
     href: "/dashboard",
-    color: "text-sky-500",
+    color: "text-sky-300",
   },
   {
     label: "Conversation",
     icon: MessageSquare,
     href: "/conversation",
-    color: "text-violet-500",
+    color: "text-violet-300",
   },
   {
     label: "Image Generation",
     icon: ImageIcon,
     href: "/image",
-    color: "text-pink-700",
+    color: "text-pink-300",
   },
   {
     label: "Video Generation",
     icon: VideoIcon,
     href: "/video",
-    color: "text-orange-700",
+    color: "text-orange-300",
   },
   {
     label: "Music Generation",
     icon: MusicIcon,
     href: "/music",
-    color: "text-emerald-500",
+    color: "text-emerald-300",
   },
   {
     label: "Code Generation",
     icon: CodeIcon,
     href: "/code",
-    color: "text-green-700",
+    color: "text-green-300",
   },
   {
     label: "Settings",
     icon: Settings,
     href: "/settings",
-    color: "text-gray-400",
+    color: "text-gray-300",
   },
 ];
 
-const Sidebar = () => {
+interface SidebarProps {
+  apiLimitCount: number;
+}
+
+const Sidebar = ({ apiLimitCount = 0 }: SidebarProps) => {
   const pathname = usePathname();
   return (
     <div className="h-full flex-col space-y-4 bg-[#111827] py-4 text-white">
@@ -99,6 +104,7 @@ const Sidebar = () => {
           ))}
         </div>
       </div>
+      <FreeCounter apiLimitCount={apiLimitCount} />
     </div>
   );
 };
