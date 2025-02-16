@@ -1,6 +1,7 @@
 "use client";
 
 import { MAX_FREE_COUNTS } from "@/constants";
+import { useProModal } from "@/hooks/use-pro-modal";
 import { Zap } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
@@ -13,6 +14,7 @@ interface FreeCounterProps {
 
 export const FreeCounter = ({ apiLimitCount = 0 }: FreeCounterProps) => {
   const [mounted, setMounted] = useState(false);
+  const proModal = useProModal();
 
   useEffect(() => {
     setMounted(true);
@@ -33,7 +35,11 @@ export const FreeCounter = ({ apiLimitCount = 0 }: FreeCounterProps) => {
               value={(apiLimitCount / MAX_FREE_COUNTS) * 100}
             />
           </div>
-          <Button className="w-full" variant="premium">
+          <Button
+            className="w-full"
+            variant="premium"
+            onClick={proModal.onOpen}
+          >
             Upgrade to Pro
             <Zap className="ml-2 size-4 fill-white" />
           </Button>

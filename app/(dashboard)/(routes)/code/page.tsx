@@ -9,9 +9,10 @@ import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { UserAvatar } from "@/components/user-avatar";
+import { useProModal } from "@/hooks/use-pro-modal";
 import { cn } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { Code } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { ChatCompletionMessageParam } from "openai/resources/index.mjs";
@@ -23,6 +24,7 @@ import { formSchema } from "./constants";
 
 const CodePage = () => {
   const router = useRouter();
+  const proModal = useProModal();
   const [messages, setMessages] = useState<ChatCompletionMessageParam[]>([]);
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -50,8 +52,11 @@ const CodePage = () => {
       setMessages((current) => [...current, userMessage, response.data]);
       form.reset();
     } catch (error) {
-      // TODO: Add Pro Modal
-      console.log(error);
+      if (error instanceof AxiosError) {
+        if (error.response?.status === 403) {
+          proModal.onOpen();
+        }
+      }
     } finally {
       router.refresh();
     }

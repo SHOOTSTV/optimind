@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 
-const MobileSidebar = () => {
+const MobileSidebar = ({ apiLimitCount }: { apiLimitCount: number }) => {
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -20,7 +20,7 @@ const MobileSidebar = () => {
       </SheetTrigger>
       <SheetTitle className="hidden"></SheetTitle>
       <SheetContent side="left" className="p-0">
-        <Sidebar />
+        <Sidebar apiLimitCount={apiLimitCount} />
       </SheetContent>
     </Sheet>
   );
