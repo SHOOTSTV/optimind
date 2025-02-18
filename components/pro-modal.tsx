@@ -21,6 +21,7 @@ import {
   Zap,
 } from "lucide-react";
 import { useState } from "react";
+import toast from "react-hot-toast";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import { Card } from "./ui/card";
@@ -69,6 +70,7 @@ export const ProModal = () => {
       window.location.href = response.data.url;
     } catch (error) {
       console.error(error, "STRIPE_ERROR");
+      toast.error("Something went wrong");
     } finally {
       setLoading(false);
     }
