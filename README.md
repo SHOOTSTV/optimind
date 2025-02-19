@@ -1,36 +1,105 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# OptiMind
 
-## Getting Started
+<img src="public/logo.png" alt="OptiMind" width="100" height="100">
 
-First, run the development server:
+![Next.js](https://img.shields.io/badge/Next.js-15-black)
+![React](https://img.shields.io/badge/React-19-blue)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)
+![Tailwind](https://img.shields.io/badge/Tailwind-3-06B6D4)
+![Prisma](https://img.shields.io/badge/Prisma-6-2D3748)
+
+OptiMind is an all-in-one AI SaaS platform that combines multiple AI tools for content generation, built with Next.js 15, React, Prisma, and Tailwind.
+
+## ✨ Features
+
+- 💬 **AI Conversation** - AI chat
+- 🎨 **Image Generation** - Create images from text
+- 🎥 **Video Generation** - Video content production
+- 🎵 **Music Generation** - AI music composition
+- 💻 **Code Generation** - Programming assistance
+- 💳 **Pro subscription system**
+- 🔐 **Secure authentication with Clerk**
+- 📱 **Responsive design**
+- ♾️ **Unlimited generations** (Pro version)
+
+## 🚀 Technologies Used
+
+- **Framework**: Next.js 15
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Database**: Prisma
+- **Authentication**: Clerk
+- **State Management**: Zustand
+- **UI Components**: shadcn/ui
+- **Payments**: Stripe
+- **AI**: OpenAI, Replicate
+
+## 🛠️ Installation
+
+1. Clone the repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/SHOOTSTV/optimind.git
+cd optimind
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Configure environment variables .env
 
-## Learn More
+```bash
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_XXXXXXXXXXXXXXXXX
+CLERK_SECRET_KEY=sk_test_XXXXXXXXXXXX
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/
+NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/
 
-To learn more about Next.js, take a look at the following resources:
+DATABASE_URL=XXXXXXXXXXXXX
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+OPENAI_API_KEY=XXXXXXXXXXXXX
+REPLICATE_API_TOKEN=XXXXXXXXXXXXX
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+STRIPE_API_KEY=sk_test_XXXXXXXXXXXXXX
+STRIPE_WEBHOOK_SECRET=XXXXXXXXXX
 
-## Deploy on Vercel
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. Setup Database
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+# Generate Prisma Client
+npx prisma generate
+
+# Push the database schema
+npx prisma db push
+
+# If you want to see the database in Prisma Studio
+npx prisma studio
+```
+
+5. Start the development server
+
+```bash
+pnpm dev
+```
+
+The app should now be running on [http://localhost:3000](http://localhost:3000)
+
+## 🌐 Project Structure
+
+    optimind/
+    ├── app/     # Next.js routes and components
+    ├── components/    # Reusable components
+    ├── lib/     # Utilities and configurations
+    ├── prisma/  # Schema and migrations
+    └── public/  # Static assets
+
+## 🤝 Acknowledgements
+
+CodeWithAntonio: https://codewithantonio.com/

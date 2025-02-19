@@ -13,10 +13,8 @@ export const LandingHero = () => {
       <div className="space-y-5 text-4xl font-extrabold sm:text-5xl md:text-6xl lg:text-7xl">
         <h1>The Best AI Tool for</h1>
         <div className="bg-gradient-to-r from-[#E6E6FA] via-[#B19CD9] to-[#87CEEB] bg-clip-text text-transparent">
-          <Typewriter
-            words={["Your Business", "Your Life", "Your Ideas"]}
-            loop
-          />
+          Y
+          <Typewriter words={["our Business", "our Life", "our Ideas"]} loop />
         </div>
       </div>
       <div className="text-sm font-light text-zinc-400 md:text-xl">
